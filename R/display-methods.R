@@ -1,5 +1,5 @@
 #' @export display
-#test change
+# overwrite test comment
 setGeneric( "display" , function( .Object , ... ) { standardGeneric( "display" ) } )
 
 setMethod(
