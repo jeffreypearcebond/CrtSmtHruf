@@ -2,6 +2,7 @@
 HRUF_Weekly_Report <- function( scalar_arg = NULL , relation_arg = NULL ) {
   library( gridExtra )
 
+  ticket <- paste( "CRT_SMT_HRUF" , gsub( "-" , "" , scalar_arg["Task_Date"] ) )
   print( "Retrieve")
   historical <- Historical( report_date = scalar_arg["Report_Date"] )
   emresource <- EMResource( file_name = paste( scalar_arg["File_In_Folder"] , relation_arg["Hospital_Resource"] , sep = "/" ) )
@@ -23,7 +24,7 @@ HRUF_Weekly_Report <- function( scalar_arg = NULL , relation_arg = NULL ) {
     error = function(e) { print(e) }
   )
   print( "Display and Create")
-  file_out_root <- paste( scalar_arg["File_Out_Folder"] , scalar_arg["Ticket"] , sep = "/" )
+  file_out_root <- paste( scalar_arg["File_Out_Folder"] , ticket , sep = "/" )
   ggsave( paste( file_out_root , "pdf" , sep = "." ) , ml , width = 8 , height = 10  )
 
   print( "Display Staff")
