@@ -109,12 +109,12 @@ setMethod(
       ) 
       
     )
-    workbook <- c( 
+     workbook <- c( 
       list( Variables_For_Text = var ) ,
       display( .Object = .Object@staff_obs , file_name = paste( file_out_root , "Staff.xlsx" , sep = "_" ) ) ,
-      display( .Object = .Object@bed_obs , growth = growth_estimate , report_date = scalar_arg["Report_Date"] , file_name = paste( file_out_root , "Bed.xlsx" , sep = "_" ) )
+      display( .Object = .Object@bed_obs , growth = .Object@growth_estimate , report_date = scalar_arg["Report_Date"] , file_name = paste( file_out_root , "Bed.xlsx" , sep = "_" ) )
     )
-    
+
     openxlsx::write.xlsx( workbook , paste( paste( scalar_arg["File_Out_Folder"] , ticket , sep = "/" ) , "xlsx" , sep = "." ) )
   }
 )
