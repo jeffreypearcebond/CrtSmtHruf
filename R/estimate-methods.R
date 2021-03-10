@@ -17,7 +17,7 @@ setMethod(
         }
       )
     )
-    Estimate(
+    Interval(
       mean = tibble( Region = .Object$Region , Estimate = retVal[,1] ) ,
       sd = tibble( Region = .Object$Region , SD = retVal[,2] )
     )
@@ -40,7 +40,7 @@ setMethod(
     )
 
     dimnames( mu )[[2]] <- format(sort( unique( .Object$Report_Date ) ))
-    Estimate(
+    Interval(
       mean = tibble( regions, mu ) , sd = tibble()
     )
   }
