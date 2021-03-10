@@ -89,7 +89,7 @@ setMethod(
         collapse = "-"
       )
     }
-    occ <- function( beds ) { round( 100 * beds[1] / sum(beds) , 0 ) }
+    occ <- function( beds ) { round( 100 * ( beds[1] - beds[2] ) / beds[1] , 0 ) }
     day <- as.Date( scalar_arg["Report_Date"] )
     var <- tibble(
       Variable = c( "Report_Date" , "TaskDate" , "Current Two Weeks" , "Forecast Two Weeks" , "Occupancy" ) ,
